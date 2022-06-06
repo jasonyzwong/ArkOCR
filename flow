@@ -1,0 +1,18 @@
+1. take screenshot
+2. extract text from fixed locations
+3. pass to OCR to get text values
+4. get text values back and pass to API/backend local logic
+5. retrieve possible values
+6. format results
+
+Image Considerations
+- different screen resolutions
+-- relative screen locations? need to test
+
+- crop images or pass sections?
+-- image manipulation, done in preprocessing / numpy?
+--- numpy arrays > if its proportional to screen resolution, can do array math on imported image?
+
+Todo
+-fixed 5 points for the tags, identify hard locations? scaled locations?
+-- for now, do fixed locations based on test data, use that information to get relative information
