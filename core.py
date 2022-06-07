@@ -17,6 +17,7 @@ c3 = 1515
 r1 = 643
 r2 = 773
 reader = easyocr.Reader(['en'], )
+tags = [None] * 5
 
 
 
@@ -38,25 +39,18 @@ img2 = img1
 #(917,643), (1216,643), (1515, 643), (920, 773), (1216, 773)
 #todo > relative positions 
 
-
 tag1 = img1[r1:r1+boxh, c1:c1+boxw]
-text1= reader.readtext(tag1, detail = 0)
-
 tag2 = img1[r1:r1+boxh, c2:c2+boxw]
-text2= reader.readtext(tag2, detail = 0)
-
 tag3 = img1[r1:r1+boxh, c3:c3+boxw]
-text3= reader.readtext(tag3, detail = 0)
-
 tag4 = img1[r2:r2+boxh, c1:c1+boxw]
-text4= reader.readtext(tag4, detail = 0)
-
 tag5 = img1[r2:r2+boxh, c2:c2+boxw]
-text5= reader.readtext(tag5, detail = 0)
+
+tagimg =[tag1, tag2, tag3, tag4, tag5]
+
+#testing iterating
+for i in range(5):
+    tags[i] = reader.readtext(tagimg[i], detail = 0, paragraph = True)[0]
 
 
-print(text1)
-print(text2)
-print(text3)
-print(text4)
-print(text5)
+
+print(tags)
